@@ -170,7 +170,7 @@ Tweets by @BranHeatherby
 				
 				<!-- LATEST POSTS -->
 				<div class="col-lg-4 links">
-					<a href="http://branheatherby.com/about"><h4>bio.</h4></a>
+					<a href="/about"><h4>bio.</h4></a>
 					<a href="http://branheatherby.tumblr.com/"><h4>blog.</h4></a>
 					
 
