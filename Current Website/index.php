@@ -138,34 +138,11 @@
 					<!--<p id="follow"><i class="fa fa-twitter"></i> follow <a href="http://www.twitter.com/branheatherby">@BranHeatherby</a> on twitter</p> -->
 					<p>
 						
-						<a class="twitter-timeline"
-						data-widget-id="510867893613899776"
-						href="https://twitter.com/BranHeatherby"
-						width="900"
-						height="300"
-						data-chrome="nofooter transparent">
+						<a id="twitter-timeline" 
+						href="https://twitter.com/BranHeatherby">
 Tweets by @BranHeatherby
 </a>
-
-<!--<a class="twitter-timeline" data-dnt="true" href="https://twitter.com/BranHeatherby" data-widget-id="510867893613899776">Tweets by @BranHeatherby</a> -->
-
-<script>window.twttr = (function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0],
-    t = window.twttr || {};
-  if (d.getElementById(id)) return t;
-  js = d.createElement(s);
-  js.id = id;
-  js.src = "https://platform.twitter.com/widgets.js";
-  fjs.parentNode.insertBefore(js, fjs);
- 
-  t._e = [];
-  t.ready = function(f) {
-    t._e.push(f);
-  };
- 
-  return t;
-}(document, "script", "twitter-wjs"));</script>
-<!--<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script> --></p>
+</p>
 				</div><!-- /col-lg-8 -->
 				
 				<!-- LATEST POSTS -->
@@ -187,6 +164,20 @@ Tweets by @BranHeatherby
 	=============================================================================================================================>    
 <?php include('footer.html') ;?>
 
-  
+  <script src="https://platform.twitter.com/widgets.js"></script>
+  <script type="text/javascript">
+  $(document).ready(function () {
+  	window.twttr.widgets.createTimeline(
+  		"510867893613899776",
+  		document.getElementById("twitter-timeline"),
+  		{
+  			width: '900',
+  			height: '300', 
+  			chrome: 'nofooter transparent',
+  			tweetLimit: '4'
+  		}
+  	);
+  });
+  </script>
   </body>
 </html>
