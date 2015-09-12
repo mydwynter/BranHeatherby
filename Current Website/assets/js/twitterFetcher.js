@@ -1,6 +1,6 @@
 /*********************************************************************
-*  #### Twitter Post Fetcher v12.0 ####
-*  Coded by Jason Mayes 2013. A present to all the developers out there.
+*  #### Twitter Post Fetcher v13.0 ####
+*  Coded by Jason Mayes 2015. A present to all the developers out there.
 *  www.jasonmayes.com
 *  Please keep this disclaimer with my code if you use it. Thanks. :-)
 *  Got feedback or questions, ask here:
@@ -8,7 +8,20 @@
 *  Github: https://github.com/jasonmayes/Twitter-Post-Fetcher
 *  Updates will be posted to this site.
 *********************************************************************/
-var twitterFetcher = function() {
+(function(root, factory) {
+  if (typeof define === 'function' && define.amd) {
+    // AMD. Register as an anonymous module.
+    define([], factory);
+  } else if (typeof exports === 'object') {
+    // Node. Does not work with strict CommonJS, but
+    // only CommonJS-like environments that support module.exports,
+    // like Node.
+    module.exports = factory();
+  } else {
+    // Browser globals.
+    factory();
+  }
+}(this, function() {
   var domNode = '';
   var maxTweets = 20;
   var parseLinks = true;
@@ -22,7 +35,11 @@ var twitterFetcher = function() {
   var customCallbackFunction = null;
   var showInteractionLinks = true;
   var showImages = false;
+  var targetBlank = true;
   var lang = 'en';
+  var permalinks = true;
+  var script = null;
+  var scriptAdded = false;
 
   function handleTweets(tweets){
     if (customCallbackFunction === null) {
@@ -47,6 +64,13 @@ var twitterFetcher = function() {
         '');
   }
 
+  function targetLinksToNewWindow(el) {
+    var links = el.getElementsByTagName('a');
+    for (var i = links.length - 1; i >= 0; i--) {
+      links[i].setAttribute('target', '_blank');
+    }
+  }
+
   function getElementsByClassName (node, classname) {
     var a = [];
     var regex = new RegExp('(^| )' + classname + '( |$)');
@@ -66,7 +90,7 @@ var twitterFetcher = function() {
     }
   }
 
-  return {
+  var twitterFetcher = {
     fetch: function(config) {
       if (config.maxTweets === undefined) {
         config.maxTweets = 20;
@@ -95,6 +119,12 @@ var twitterFetcher = function() {
       if (config.showImages === undefined) {
         config.showImages = false;
       }
+      if (config.linksInNewWindow === undefined) {
+        config.linksInNewWindow = true;
+      }
+      if (config.showPermalinks === undefined) {
+        config.showPermalinks = true;
+      }
 
       if (inProgress) {
         queue.push(config);
@@ -111,16 +141,22 @@ var twitterFetcher = function() {
         customCallbackFunction = config.customCallback;
         showInteractionLinks = config.showInteraction;
         showImages = config.showImages;
+        targetBlank = config.linksInNewWindow;
+        permalinks = config.showPermalinks;
 
-        var script = document.createElement('script');
+        var head = document.getElementsByTagName('head')[0];
+        if (script !== null) {
+          head.removeChild(script);
+        }
+        script = document.createElement('script');
         script.type = 'text/javascript';
-        script.src = '//cdn.syndication.twimg.com/widgets/timelines/' +
-            config.id + '?&lang=' + (config.lang || lang) + '&callback=twitterFetcher.callback&' +
+        script.src = 'https://cdn.syndication.twimg.com/widgets/timelines/' +
+            config.id + '?&lang=' + (config.lang || lang) +
+            '&callback=twitterFetcher.callback&' +
             'suppress_response_codes=true&rnd=' + Math.random();
-        document.getElementsByTagName('head')[0].appendChild(script);
+        head.appendChild(script);
       }
     },
-
     callback: function(data) {
       var div = document.createElement('div');
       div.innerHTML = data.body;
@@ -134,6 +170,7 @@ var twitterFetcher = function() {
       var images = [];
       var rts = [];
       var tids = [];
+      var permalinksURL = [];
       var x = 0;
 
       if (supportsClassName) {
@@ -149,6 +186,7 @@ var twitterFetcher = function() {
             tids.push(tmp[x].getAttribute('data-tweet-id'));
             authors.push(tmp[x].getElementsByClassName('p-author')[0]);
             times.push(tmp[x].getElementsByClassName('dt-updated')[0]);
+            permalinksURL.push(tmp[x].getElementsByClassName('permalink')[0]);
             if (tmp[x].getElementsByClassName('inline-media')[0] !== undefined) {
               images.push(tmp[x].getElementsByClassName('inline-media')[0]);
             } else {
@@ -164,6 +202,7 @@ var twitterFetcher = function() {
           tids.push(tmp[x].getAttribute('data-tweet-id'));
           authors.push(getElementsByClassName(tmp[x], 'p-author')[0]);
           times.push(getElementsByClassName(tmp[x], 'dt-updated')[0]);
+          permalinksURL.push(getElementsByClassName(tmp[x], 'permalink')[0]);
           if (getElementsByClassName(tmp[x], 'inline-media')[0] !== undefined) {
             images.push(getElementsByClassName(tmp[x], 'inline-media')[0]);
           } else {
@@ -185,6 +224,7 @@ var twitterFetcher = function() {
         times.splice(maxTweets, (times.length - maxTweets));
         rts.splice(maxTweets, (rts.length - maxTweets));
         images.splice(maxTweets, (images.length - maxTweets));
+        permalinksURL.splice(maxTweets, (permalinksURL.length - maxTweets));
       }
 
       var arrayTweets = [];
@@ -192,9 +232,10 @@ var twitterFetcher = function() {
       var n = 0;
       while(n < x) {
         if (typeof(formatterFunction) !== 'string') {
+          var datetimeText = times[n].getAttribute('datetime');
           var newDate = new Date(times[n].getAttribute('datetime')
               .replace(/-/g,'/').replace('T', ' ').split('+')[0]);
-          var dateString = formatterFunction(newDate);
+          var dateString = formatterFunction(newDate, datetimeText);
           times[n].setAttribute('aria-label', dateString);
 
           if (tweets[n].innerText) {
@@ -214,14 +255,25 @@ var twitterFetcher = function() {
         }
         var op = '';
         if (parseLinks) {
+          if (targetBlank) {
+            targetLinksToNewWindow(tweets[n]);
+            if (printUser) {
+              targetLinksToNewWindow(authors[n]);
+            }
+          }
           if (printUser) {
             op += '<div class="user">' + strip(authors[n].innerHTML) +
                 '</div>';
           }
           op += '<p class="tweet">' + strip(tweets[n].innerHTML) + '</p>';
           if (printTime) {
-            op += '<p class="timePosted">' +
-                times[n].getAttribute('aria-label') + '</p>';
+            if (permalinks) {
+              op += '<p class="timePosted"><a href="' + permalinksURL[n] +
+                 '">' + times[n].getAttribute('aria-label') + '</a></p>';
+            } else {
+              op += '<p class="timePosted">' +
+                  times[n].getAttribute('aria-label') + '</p>';
+            }
           }
         } else {
           if (tweets[n].innerText) {
@@ -245,17 +297,20 @@ var twitterFetcher = function() {
         }
         if (showInteractionLinks) {
           op += '<p class="interact"><a href="https://twitter.com/intent/' +
-              'tweet?in_reply_to=' + tids[n] + '" class="twitter_reply_icon">' +
+              'tweet?in_reply_to=' + tids[n] + '" class="twitter_reply_icon"' +
+              (targetBlank ? ' target="_blank">' : '>') +
               'Reply</a><a href="https://twitter.com/intent/retweet?tweet_id=' +
-              tids[n] + '" class="twitter_retweet_icon">Retweet</a>' +
+              tids[n] + '" class="twitter_retweet_icon"' +
+              (targetBlank ? ' target="_blank">' : '>') + 'Retweet</a>' +
               '<a href="https://twitter.com/intent/favorite?tweet_id=' +
-              tids[n] + '" class="twitter_fav_icon">Favorite</a></p>';
+              tids[n] + '" class="twitter_fav_icon"' +
+              (targetBlank ? ' target="_blank">' : '>') + 'Favorite</a></p>';
         }
 
         if (showImages && images[n] !== undefined) {
           op += '<div class="media">' +
-              '<img src="' + extractImageUrl(images[n]) + '" alt="Image from tweet" />' +
-              '</div>';
+              '<img src="' + extractImageUrl(images[n]) +
+              '" alt="Image from tweet" />' + '</div>';
         }
 
         arrayTweets.push(op);
@@ -269,5 +324,10 @@ var twitterFetcher = function() {
         queue.splice(0,1);
       }
     }
-  }
-}();
+  };
+
+  // It must be a global variable because it will be called by JSONP.
+  window.twitterFetcher = twitterFetcher;
+
+  return twitterFetcher;
+}));

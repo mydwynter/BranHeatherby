@@ -8,34 +8,36 @@
  */
  
 /* FONTS */
-@import url(http://fonts.googleapis.com/css?family=Ruda:400,900,700);
+ @import url(http://fonts.googleapis.com/css?family=Cardo:400,900,700|Cantata+One);
 
 /* SASS */
 
-$white: #f9fcf6; /* #f2f2f2 */
-$lt-grey: #ced1ca;/*#ccd5c3, d3d6cf*/
-$grey: #cddcdc;
-$med-grey: #7C8078;
-$dark-grey: #3E403C;
-$black: #232422;
+$white: #f2f2f2; /* #f2f2f2 */
+$lt-grey: #d2d3d5;/*#ccd5c3, d3d6cf*/
+$grey: #acacac;
+$med-grey: #787e80;
+$dark-grey: #44484a;
+$black: #1e2122;
 $orange: #FFB569;
 $dark-orange: #F29000;
 $brown: #865000;
 
-$font-main: "edita", helvetica,arial,serif;
+$font-main: "Cardo", Garamond, serif;
+$font-head: "Cantata One", Garamond, serif;
 
+/*Arapey Cardo Volkhov IM Fell English Glass Antiqua Almendra Metamorphous Stoke Yeseva One Cantata One*/
 
 /* OVERALL ASPECT */
 
 body {
-    background-color: $white;
+    background-color: $lt-grey;
     font-family: $font-main;
     font-weight:400;
     font-size: 62.5%;
     color: #555;
 
-    -webkit-font-smoothing: antialiased;
-    -webkit-overflow-scrolling: touch;
+    /*-webkit-font-smoothing: antialiased;
+    -webkit-overflow-scrolling: touch;*/
     
 }
 
@@ -76,7 +78,7 @@ a {
 
 a:hover,
 a:focus {
-    color: #7b7b7b;
+    color: $med-grey !important;
     text-decoration: none;
     outline: 0;
 }
@@ -349,14 +351,18 @@ p.capitalize:first-letter {
 	
 }
 
+
 #headerwrap h1 {
-	margin-top: -200px;
-	color: white;
-	font-size: 50px;
-	font-weight: 900;
-	letter-spacing: 1px;
-	visibility: hidden;
+	font-family: $font-head;
+    color: white;
+    font-size: 60px;
+    font-weight: 300;
+    letter-spacing: .1px;
+    margin-left: 160px;
+    line-height: 57px;
+    /*margin-top: 70px;*/
 }
+
 
 #headerwrap h2 {
 	color: white;
@@ -385,16 +391,16 @@ p.capitalize:first-letter {
 
 #tagline {
 	background: $med-grey;
-	min-height: 100px;
+	min-height: 80px;
 	
 }
 
 #tagline h3{
-	color: $lt-grey;
+	color: $white;
 	font-family: $font-main;
 	 font-size: 4rem;
 	 line-height: .8em;
-    font-style: italic;
+    font-style:normal;
     letter-spacing: 2px;
     margin:	20px 0;
 	
@@ -415,7 +421,7 @@ p.capitalize:first-letter {
 }
 
 #grey {
-	color: $white;
+	color: $lt-grey;
 	margin-top: 0px;
 	background-color: $med-grey;
 	min-height: 300px;
@@ -658,9 +664,9 @@ p.capitalize:first-letter {
 /* ================== WORKS IN PROGRESS ================== */
 
 .works {
-	background-color: #e6e9e3;
+	background-color: $white;
 	padding: 10px 10px 20px 10px;
-	border: $lt-grey 3px solid;
+	border: $med-grey 3px solid;
 }
 
 .works h3{
@@ -676,8 +682,9 @@ p.capitalize:first-letter {
 }
 
 .work-block {
-	min-height: 300px;
+	min-height: 200px;
 	padding-top:	20px;
+	background-color: $white;
 }
 
 /*.work-block:hover {
@@ -705,6 +712,22 @@ p.capitalize:first-letter {
   border-color: #f9fcf6;
   border: 2px solid #7C8078; }
   
+  
+/* ================== ABOUT PAGE ================== */
+  
+  
+  .about-block {
+	min-height: 200px;
+	padding: 50px;
+	background-color: $white;
+	background-image: url(../img/crow.png);
+	background-repeat: no-repeat;
+	background-position: 300px 0px, left;
+}
+
+.about-block p{
+	font-size: 18px;
+}
 /* ================== TWITTER STYLES ================== */
 
 #social {
@@ -714,7 +737,15 @@ p.capitalize:first-letter {
 }
 
 .tweet {
-	background-color: #e6e9e3;
+	background-color: $lt-grey;
+	background-image: url(../img/crow.png);
+	background-size: 575px;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-position:inherit;
+	/*background-position-x: 125px;
+	background-position-y: -90px;*/
+	background-position: 125px -40px, center;
 	padding: 15px;
 }
 
@@ -769,16 +800,17 @@ p.capitalize:first-letter {
 }
 
 
+
 /* ================== LINKS ================== */
 
 .links	h4{
 	color: $white;
-	background-color: #4b4e48;
+	background-color: $dark-grey;
 	font-size: 3.2rem;
 	font-weight: 200;
 	text-align: center;
 	padding: 15px;
-	border: 3px solid $dark-grey;
+	border: 3px solid $lt-grey;
 }
 
 
@@ -794,8 +826,9 @@ links a{
 
 #f {
 	background-color: $dark-grey;
-	padding-top: 30px;
-	padding-bottom: 30px;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	min-height: 80px;
 }
 
 #f p {
@@ -847,6 +880,8 @@ links a{
 
 #headerwrap h1 {
 	font-size: 35px;
+	margin-left: 50px;
+	line-height: 37px;
 }
 
 #cta03 {

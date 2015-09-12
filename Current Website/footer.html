@@ -1,0 +1,32 @@
+	<div id="f">
+		<div class="container">
+			<div class="row centered">
+				<h4><i class="fa fa-copyright"></i> 2015 Bran Heatherby</h4></a>
+			</div>
+		</div><!-- /container -->
+	</div><!-- /cta-bar -->
+	
+	
+	
+	
+	
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/retina.js"></script>
+
+
+  	<script>
+		$(window).scroll(function() {
+			$('.si').each(function(){
+			var imagePos = $(this).offset().top;
+	
+			var topOfWindow = $(window).scrollTop();
+				if (imagePos < topOfWindow+400) {
+					$(this).addClass("slideUp");
+				}
+			});
+		});
+	</script>    

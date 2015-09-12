@@ -8,7 +8,7 @@
     <meta name="author" content="">
     <link rel="shortcut icon" href="assets/ico/favicon.png">
 
-    <title>MARCO - One Page Bootstrap 3 Theme</title>
+    <title>Bran Heatherby</title>
 
     <link href="assets/css/hover_pack.css" rel="stylesheet">
 
@@ -24,7 +24,7 @@
     
     <!-- JavaScripts needed at the beginning
     ================================================== -->
-    <script type="text/javascript" src="/assets/js/twitterFetcher.js"></script>
+    <!-- <script type="text/javascript" src="/assets/js/twitterFetcher.js"></script> -->
   
     
     
@@ -39,55 +39,20 @@
       <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
     <![endif]-->
     
-    <script src="//use.typekit.net/wfa8clu.js"></script>
-<script>try{Typekit.load();}catch(e){}</script>
+   <!-- <script src="//use.typekit.net/wfa8clu.js"></script>
+<script>try{Typekit.load();}catch(e){}</script> -->
+
+<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Lora|Oranienbaum&text=Bran%20Heatherby">
+
 
   </head>
 
   <body>
-
+	  
+<?php include('header.html') ;?>
 
 	<! ========== HEADERWRAP ==================================================================================================== 
-	=============================================================================================================================>
-    <div id="headerwrap">
-    	<div class="container">
-			<div class="row centered">
-				<div class="col-lg-8 col-lg-offset-2 mt">
-					<h1 class="animation slideDown">Nick Heatherby</h1>
-				</div>
-				
-			</div><!-- /row -->
-    	</div><!-- /container -->
-    </div> <!-- /headerwrap -->
-
-	<! ========== BLOG POSTS ==================================================================================================== 
-	=============================================================================================================================>    
-	<div id="middleheader">
-		<div class="container">
-	    	<div class="row mt">
-	    		<div class="col-lg-4 col-lg-offset-4 centered">
-	    			<h3>sci fi. mystery. fantasy.</h3>
-	    			
-	    		</div>
-	    	</div><! --/row -->
-		</div><!-- /container -->
-		
-	</div><!-- /white -->
-	
-	<! ========== CALL TO ACTION 1 ============================================================================================== 
-	=============================================================================================================================>    
- <div id="tagline">
-		<div class="container">
-	    	<div class="row mt taglinerow">
-	    		<div class="col-lg-12 centered">
-	    			<h3>Everyone deserves to see themselves reflected.</h3>
-	    			
-	    		</div>
-	    	</div><! --/row -->
-		</div><!-- /container -->
-		
-	</div><!-- /white -->
-
+	====================================================================================================
 	<! ========== PORTFOLIO SECTION ============================================================================================= 
 	=============================================================================================================================>    
 	
@@ -121,22 +86,22 @@
 	    		</div><!--/row mt -->
     	<div class="row mt">
     		<div class="col-lg-4 centered work-block">
-    			<i class="fa fa-book"></i>
-    			<h4>short story</h4>
+    			
+    			<h4><b>Brother Æthelstan's Paintbrush</b></h4><hr>
     			<p>One part M.R. James,<br/> one part Ma Liang's Magic Paintbrush.<br/>All creepy as hell.</p>
-    			<hr>
+    			
+    		</div>
+    		<div class="col-lg-4 centered work-block">
+    			
+    			<h4><b>Retraction</b></h4><hr>
+    			<p>Tara is an cat veterinarian. She used to be a goddess of health and resurrection. But some things still take a bit of a push to heal.</p>
+    			
     		</div>
     		<div class="col-lg-4 centered work-block">
     			<i class="fa fa-book"></i>
-    			<h4>novel</h4>
-    			<p>Gabriel Kingstree has got a long journey ahead of him. And in the land of faerie, he doesn't have a butler.</p>
-    			<hr>
-    		</div>
-    		<div class="col-lg-4 centered work-block">
-    			<i class="fa fa-book"></i>
-    			<h4>short story</h4>
-    			<p>Nathan doesn't understand where all the bruises are coming from, or where all those missing minutes have got to.</p>
-    			<hr>
+    			<h4><b>Lore</b></h4><hr>
+    			<p>Malcolm has got a long journey ahead of him. But at least in the land of faerie, he doesn't have to be in service.</p>
+    			
     		</div>   	
 
     		 	
@@ -170,13 +135,44 @@
 				<div class="col-lg-8 tweet">
 					<h4>Recent Tweets</h4>
 					<div id="showtweets"></div>
-					<p id="follow"><i class="fa fa-twitter"></i> follow <a href="http://www.twitter.com/nickheatherby">@NickHeatherby</a> on twitter</p>
+					<!--<p id="follow"><i class="fa fa-twitter"></i> follow <a href="http://www.twitter.com/branheatherby">@BranHeatherby</a> on twitter</p> -->
+					<p>
+						
+						<a class="twitter-timeline"
+						data-widget-id="510867893613899776"
+						href="https://twitter.com/BranHeatherby"
+						width="900"
+						height="300"
+						data-chrome="nofooter transparent">
+Tweets by @BranHeatherby
+</a>
+
+<!--<a class="twitter-timeline" data-dnt="true" href="https://twitter.com/BranHeatherby" data-widget-id="510867893613899776">Tweets by @BranHeatherby</a> -->
+
+<script>window.twttr = (function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0],
+    t = window.twttr || {};
+  if (d.getElementById(id)) return t;
+  js = d.createElement(s);
+  js.id = id;
+  js.src = "https://platform.twitter.com/widgets.js";
+  fjs.parentNode.insertBefore(js, fjs);
+ 
+  t._e = [];
+  t.ready = function(f) {
+    t._e.push(f);
+  };
+ 
+  return t;
+}(document, "script", "twitter-wjs"));</script>
+<!--<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script> --></p>
 				</div><!-- /col-lg-8 -->
 				
 				<!-- LATEST POSTS -->
 				<div class="col-lg-4 links">
-					<a href="http://nickheatherby.tumblr.com/"><h4>blog.</h4></a>
-					<h4>about.</h4>
+					<a href="http://branheatherby.com/bio"><h4>bio.</h4></a>
+					<a href="http://branheatherby.tumblr.com/"><h4>blog.</h4></a>
+					
 
 				</div><!-- /col-lg-4 -->
 				
@@ -189,93 +185,7 @@
 	
 <! ========== FOOTER =============================================================================================== 
 	=============================================================================================================================>    
-	<div id="f">
-		<div class="container">
-			<div class="row centered">
-				<h4><i class="fa fa-copyright"></i> 2014 Nick Heatherby</h4></a>
-			</div>
-		</div><!-- /container -->
-	</div><!-- /cta-bar -->
-	
-	
-	
-	
-	
-
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="assets/js/bootstrap.min.js"></script>
-    <script src="assets/js/retina.js"></script>
-
-
-  	<script>
-		$(window).scroll(function() {
-			$('.si').each(function(){
-			var imagePos = $(this).offset().top;
-	
-			var topOfWindow = $(window).scrollTop();
-				if (imagePos < topOfWindow+400) {
-					$(this).addClass("slideUp");
-				}
-			});
-		});
-	</script>    
-
-<script>
-							/*twitterFetcher.fetch('510867893613899776', 'showtweets', 2, true, false, false, '', false, handleTweets, false);
-							
-							function handleTweets(tweets){
-							    var x = tweets.length;
-							    var n = 0;
-							    var element = document.getElementById('showtweets');
-							    var html = '<ul>';
-							    while(n < x) {
-							      html += '<li>' + tweets[n] + '</li>';
-							      n++;
-							    }
-							    html += '</ul>';
-							    element.innerHTML = html;
-							}	*/
-							
-														var config5 = {
-							  "id": '510867893613899776',
-							  "domId": '',
-							  "maxTweets": 3,
-							  "enableLinks": true,
-							  "showUser": false,
-							  "showTime": false,
-							  "dateFunction": '',
-							  "showRetweet": false,
-							  "customCallback": handleTweets,
-							  "showInteraction": true
-							};
-							
-							function handleTweets(tweets){
-							    var x = tweets.length;
-							    var n = 0;
-							    var element = document.getElementById('showtweets');
-							    var html = '<ul>';
-							    while(n < x) {
-							      html += '<li>' + tweets[n] + '</li>';
-							      n++;
-							    }
-							    html += '</ul>';
-							    element.innerHTML = html;
-							}
-							
-							twitterFetcher.fetch(config5);
-
-							
-							/*var config1 = {
-							  "id": '345690956013633536',
-							  "domId": 'showtweets',
-							  "maxTweets": 4,
-							  "enableLinks": true
-							};
-							twitterFetcher.fetch(config1);*/	
-									
-						</script>
+<?php include('footer.html') ;?>
 
   
   </body>
