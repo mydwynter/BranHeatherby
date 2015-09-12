@@ -596,7 +596,7 @@ p.capitalize:first-letter {
   background-color: #f2f2f2;
   background-image: url(../img/crow.png);
   background-repeat: no-repeat;
-  background-position: 300px 0px, left; }
+  background-position: 40% 50%, left center; }
 
 .about-block p {
   font-size: 18px; }
@@ -616,7 +616,7 @@ p.capitalize:first-letter {
   background-position: inherit;
   /*background-position-x: 125px;
 	background-position-y: -90px;*/
-  background-position: 125px -40px, center;
+  background-position: 200px -30px, center;
   padding: 15px; }
 
 .tweet h4 {
@@ -721,7 +721,7 @@ links a {
 @media (max-width: 600px) {
   #headerwrap h1 {
     font-size: 35px;
-    margin-left: 50px;
+    margin-left: 40px;
     line-height: 37px; }
   #cta03 {
     background: #2d2d2d; }
