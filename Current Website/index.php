@@ -140,7 +140,7 @@
 						
 						<a id="twitter-timeline" 
 						href="https://twitter.com/BranHeatherby">
-Tweets by @BranHeatherby
+<!--Tweets by @BranHeatherby -->
 </a>
 </p>
 				</div><!-- /col-lg-8 -->
