@@ -596,7 +596,7 @@ p.capitalize:first-letter {
   background-color: #f2f2f2;
   background-image: url(../img/crow.png);
   background-repeat: no-repeat;
-  background-position: 0px -100px, center; }
+  background-position: 90% -100px, center; }
 
 .about-block p {
   font-size: 18px; }
