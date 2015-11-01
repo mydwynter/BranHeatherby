@@ -48,6 +48,10 @@
   </head>
 
   <body>
+	  
+  <!-- Google Analytics -->
+  <?php include_once("analyticstracking.php") ?>
+  
 <?php include("header.html") ;?>
 
 	

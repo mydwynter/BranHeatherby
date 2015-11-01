@@ -25,7 +25,6 @@
     <!-- JavaScripts needed at the beginning
     ================================================== -->
     <!-- <script type="text/javascript" src="/assets/js/twitterFetcher.js"></script> -->
-  
     
     
     <!-- Main Jquery & Hover Effects. Should load first -->
@@ -50,6 +49,8 @@
   <body>
 	  
 	  
+  <!-- Google Analytics -->
+  <?php include_once("analyticstracking.php") ?>
 	  
 	  
 <!=========HEADER=========>
@@ -57,7 +58,35 @@
 <?php include('header.html') ;?>   
     
 
-<!=========WORKS=========> 
+<!=========WORKS IN PROGRESS=========> 
+
+   
+    <div class="container">
+    
+    <div class="row mt">
+	    		<div class="col-lg-4 col-lg-offset-4 centered works">
+	    			<h3>available soon</h3>
+	    		</div>
+	    		</div><!--/row mt -->
+    	<div class="row mt">
+    		<div class="col-lg-6 centered work-block">
+    			
+    			<h4><b>Brother Æthelstan's Paintbrush</b></h4><hr>
+    			<p>One part M.R. James,<br/>one part Ma Liang's Magic Paintbrush.<br/>All creepy as hell.</p>
+    			
+    		</div>
+    		<div class="col-lg-6 centered work-block">
+    			
+    			<h4><b>Heal Thyself</b></h4><hr>
+    			<p>Tara is an cat veterinarian.</br>She used to be a goddess of health and resurrection, but now that she's without her powers, it takes a little extra push to heal her own life.</p>
+    			
+    		</div>
+    			
+    		 	
+    	</div><!-- /row -->
+    </div><!-- /container -->
+
+<!=========WORKS IN PROGRESS=========> 
 
    
     <div class="container">
@@ -68,28 +97,24 @@
 	    		</div>
 	    		</div><!--/row mt -->
     	<div class="row mt">
-    		<div class="col-lg-4 centered work-block">
+    		
+    		
+    		<div class="col-lg-6 centered work-block">
     			
-    			<h4><b>Brother Æthelstan's Paintbrush</b></h4><hr>
-    			<p>One part M.R. James,<br/> one part Ma Liang's Magic Paintbrush.<br/>All creepy as hell.</p>
+    			<h4><b>Lore (working title)</b></h4><hr>
+    			<p>It was 1929 England. <br/>The faerie land Rhys offered held too much freedom for Jack to resist, but it wasn't until he'd crossed over that Jack learned there was more to life—and love—than simply being free.</p>
     			
-    		</div>
-    		<div class="col-lg-4 centered work-block">
+    		</div>   
+    		<div class="col-lg-6 centered work-block">
     			
-    			<h4><b>Retraction</b></h4><hr>
-    			<p>Tara is an cat veterinarian. She used to be a goddess of health and resurrection. But some things still take a bit of a push to heal.</p>
+    			<h4><b>Goblin Feast (working title)</b></h4><hr>
+    			<p>Late one Saturday market, Mr Godwin and Mr Pugh encountered a strange little stand full of strange little men, selling a strange little tonic. But no matter how miraculous the goblin's juice, some longings can't be healed by a tonic all alone.</p>
     			
-    		</div>
-    		<div class="col-lg-4 centered work-block">
-    			
-    			<h4><b>Lore</b></h4><hr>
-    			<p>Malcolm has got a long journey ahead of him. But at least in the land of faerie, he doesn't have to be in service.</p>
-    			
-    		</div>   	
+    		</div>	
     		 	
     	</div><!-- /row -->
     </div><!-- /container -->
-
+    
 <!=========SOCIAL=========> 
 	
 	<div id="social">
