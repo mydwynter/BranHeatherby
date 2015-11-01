@@ -43,15 +43,11 @@
 <script>try{Typekit.load();}catch(e){}</script> -->
 
 <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Lora|Oranienbaum&text=Bran%20Heatherby">
-
-
+<!-- Google Analytics -->
+  <?php include_once("analyticstracking.php") ?>
   </head>
 
-  <body>
-	  
-  <!-- Google Analytics -->
-  <?php include_once("analyticstracking.php") ?>
-  
+  <body>  
 <?php include("header.html") ;?>
 
 	
