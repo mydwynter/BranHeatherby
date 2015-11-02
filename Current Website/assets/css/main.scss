@@ -589,16 +589,23 @@ p.capitalize:first-letter {
 #cta-bar {
 	background: $dark-grey;
 	color: $white;
-	padding-top: 40px;
+	padding-top: 5px !important;
 	padding-bottom: 40px;
 	
+/*
     -webkit-transition: color 0.3s ease-in, background 0.3s ease-in;
     -moz-transition: color 0.3s ease-in, background 0.3s ease-in;
     -ms-transition: color 0.3s ease-in, background 0.3s ease-in;
     -o-transition: color 0.3s ease-in, background 0.3s ease-in;
     transition: color 0.3s ease-in, background 0.3s ease-in;
+    */
 }
 
+#cta-bar:hover {
+	background: $grey!important;
+	}
+
+/*
 #cta-bar:before,
 #cta-bar:after {
     -webkit-transition: color 0.2s ease-in, background 0.2s ease-in;
@@ -608,10 +615,11 @@ p.capitalize:first-letter {
     transition: color 0.2s ease-in, background 0.2s ease-in;
     
     cursor: pointer;
-}
+}*/
+
 
 #cta-bar h4 {
-	color: white;
+	
 	font-weight: 400;
 }
 

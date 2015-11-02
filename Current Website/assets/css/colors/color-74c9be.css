@@ -36,10 +36,10 @@ color: #74c9be;
 .tabbable .nav-stacked > li:active, li:focus, li.active h4 {
 	color: #74c9be;
 }
-
+/*
 #cta-bar:hover {
 	background: #74c9be;	
-}
+}*/
 
 p.capitalize:first-letter {
 	background: #74c9be; 
