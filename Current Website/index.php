@@ -58,7 +58,7 @@
 <?php include('header.html') ;?>   
     
 
-<!=========WORKS IN PROGRESS=========> 
+<!=========AVAILABLE SOON=========> 
 
    
     <div class="container">
@@ -87,7 +87,7 @@
     </div><!-- /container -->
 
 <!=========WORKS IN PROGRESS=========> 
-
+	<div id="cta-bar">
    
     <div class="container">
     
@@ -113,7 +113,9 @@
     		</div>	
     		 	
     	</div><!-- /row -->
+    
     </div><!-- /container -->
+	</div> <!-- progress -->
     
 <!=========SOCIAL=========> 
 	
